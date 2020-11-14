@@ -16,20 +16,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=08ga8t*s17#1f^(hljtgjhg)7xfpud$@d(i*cxd9o^=gi&n)@'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 AUTH_USER_MODEL = 'main.AdvUser'
-
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -87,17 +74,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'bboard.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'bboard.data'),
-    }
-}
-
-
 # классы реализующие аутентификацию и авторизацию
 
 AUTHENTICATION_BACKENDS = (
@@ -106,10 +82,6 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
-SOCIAL_AUTH_VK_OAUTH2_KEY = '7644574'
-SOCIAL_AUTH_VK_OAUTH2_SECRET = 'fdFo05etaWohWOcKcM39'
-SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
-#      4d7d97a94d7d97a94d7d97a9114d09323744d7d4d7d97a912e72c6f0ddcd6c1b9c04f9c
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -149,8 +121,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Настройки приложения easy_thumbnails:
 THUMBNAIL_ALIASES = {
@@ -167,14 +139,24 @@ THUMBNAIL_BASEDIR = 'thumbnails'
 # Настройки дляотправки писем
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 2525
-EMAIL_HOST_USER = "rdm.v@mail.ru"
-EMAIL_HOST_PASSWORD = "6k5vw7RDM"
+EMAIL_HOST_USER = ""
+# EMAIL_HOST_USER = "rdm.v@mail.ru"
+EMAIL_HOST_PASSWORD = ""
+# EMAIL_HOST_PASSWORD = "6k5vw7RDM"
 EMAIL_USE_TLS = True
 
-SERVER_EMAIL = "rdm.v@mail.ru"
-DEFAULT_FROM_EMAIL = "rdm.v@mail.ru"
+SERVER_EMAIL = ""
+DEFAULT_FROM_EMAIL = ""
 
+# SERVER_EMAIL = "rdm.v@mail.ru"
+# DEFAULT_FROM_EMAIL = "rdm.v@mail.ru"
 
 # Настройки, разрешающие доступ к веб-службе с любого домена
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_URLS_REGEX = r'^/api/.*$'
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    from .prod_settings import *

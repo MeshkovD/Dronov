@@ -7,12 +7,17 @@ cryptography==3.2.1
 defusedxml==0.7.0rc1
 Django==3.1.2
 django-bootstrap4==2.3.1
-django-cleanup==5.1.0 # Удаляет выгружен­ые файлы после удаления хранящих их записей моделей)
-easy-thumbnails==2.7 # Создает миниатюры
+django-cleanup==5.1.0
+django-cors-headers==3.5.0
+django-ranged-response==0.2.0
+django-simple-captcha==0.5.13
+djangorestframework==3.12.2
+easy-thumbnails==2.7
+gunicorn==20.0.4
 idna==2.10
 importlib-metadata==2.0.0
 oauthlib==3.1.0
-Pillow==8.0.1 # Обеспечивает поддержку графики
+Pillow==8.0.1
 pkg-resources==0.0.0
 pycparser==2.20
 PyJWT==1.7.1
