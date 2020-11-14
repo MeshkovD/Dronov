@@ -1,0 +1,23 @@
+{% extends 'layout/basic.html' %}
+
+{% load bootstrap4 %}
+
+{% block title %}Редактирование объявления - профиль пользователя{% endblock %}
+
+{% block content %}
+<h2>Редактирование объявления</h2>
+    <button form='form' class="btn btn-success" type="submit">Изменить</button>
+    <button class="btn btn-danger" >
+        <a href="{% url 'main:profile' %}">Отмена</a>
+    </button>
+    <form id='form' method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form layout='horizontal' %}
+        {% bootstrap_formset formset layout='horizontal' %}
+{#        {% buttons class="btn btn-succes" submit='Изменить' %}{% endbuttons %}#}
+    </form>
+    <button form   ='form' class="btn btn-success" type="submit">Изменит</button>
+    <button class="btn btn-danger">
+        <a href="{% url 'main:profile' %}">Отмена</a>
+    </button>
+{% endblock %}

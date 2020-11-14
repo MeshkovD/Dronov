@@ -1,0 +1,17 @@
+{% extends "layout/basic.html" %}
+
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %}Изменение комментария{% endblock %}
+
+{% block content %}
+{#    Форма для добавления комментариев под объявлением #}
+    <h4 class="mt-5">Изменить комментарий</h4>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form layout='horizontal' %}
+        {% buttons submit='Изменить' %}{% endbuttons %}
+    </form>
+    <div class="my-2 p-1 "><a href="{% url 'main:detail' rubric_pk=comment.bb.rubric.pk pk=comment.bb.pk %}">Вернуться назад</a></div>
+{% endblock %}
