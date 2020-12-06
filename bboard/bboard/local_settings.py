@@ -2,27 +2,26 @@ import os
 from pathlib import Path
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-SECRET_KEY = '=08ga8t*s17#1f^(hljtgjhg)7xfpud$@d(i*cxd9o^=gi&n)@'
-
 DEBUG = True
 
-ALLOWED_HOSTS = []
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+SECRET_KEY = '=08ga8t*_top_secret_^=gi&n)@'
 
 
+ALLOWED_HOSTS = ["127.0.0.1"]
 
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'bboard.data'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'local_db',
+        'USER': 'admin',
+        'PASSWORD': '123',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
-
-
 
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [STATIC_DIR]
