@@ -28,15 +28,17 @@ class AdvUser(AbstractUser):
         pass
 
 
+# Функция получатель
 def user_registrated_dispatcher(sender, **kwargs):
     send_activation_notification(kwargs['instance'])
 
+# Подключение получателяк сигналу
 user_registrated.connect(user_registrated_dispatcher)
 
 
 class Rubric(models.Model):
     name = models.CharField(
-        max_length=20,
+        max_length=100,
         db_index=True,
         unique=True,
         verbose_name='Название'

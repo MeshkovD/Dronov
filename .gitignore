@@ -6,3 +6,4 @@ db.sqlite3
 __pycache__
 .idea
 bboard/bboard/prod_settings.py
+.coverage
