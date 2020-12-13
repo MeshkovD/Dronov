@@ -32,6 +32,7 @@ class AdvUser(AbstractUser):
 def user_registrated_dispatcher(sender, **kwargs):
     send_activation_notification(kwargs['instance'])
 
+
 # Подключение получателяк сигналу
 user_registrated.connect(user_registrated_dispatcher)
 
@@ -101,7 +102,7 @@ class Bb(models.Model):
         verbose_name='Рубрика'
     )
     title = models.CharField(
-        max_length=40,
+        max_length=100,
         verbose_name='Название товара'
     )
     content = models.TextField(
