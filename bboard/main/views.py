@@ -37,7 +37,6 @@ from .forms import (
 
 )
 
-
 def index(request):
     bbs = Bb.objects.filter(is_active=True)[:10]
     context = {'bbs': bbs}
